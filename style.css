@@ -1528,3 +1528,149 @@ p, li {
     }
 }
 
+/* ==== PAGE A PROPOS – VERSION EDITORIALE ==== */
+
+.apropos-page {
+  padding-top: 82px;
+  min-height: 100vh;
+}
+
+.apropos-page {
+  padding-top: 82px;
+  min-height: 100vh;
+}
+
+/* Hero style pricing-page : halo lumineux + centre */
+
+.apropos-hero {
+  position: relative;
+  padding: 120px 40px 90px 40px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,228,122,0.25) 0%, transparent 55%),
+    radial-gradient(circle at 80% -10%, rgba(195,0,255,0.55) 0%, transparent 60%),
+    linear-gradient(180deg, #12041f 0%, #070314 50%, #05010c 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.8);
+  text-align: center;
+  overflow: hidden;
+}
+
+.apropos-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.apropos-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+  color: #ffffff;
+}
+
+.apropos-hero-subtitle {
+  font-size: 17px;
+  color: rgba(255,255,255,0.78);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+
+/* Bande sombre sous le hero, façon section pricing */
+
+.apropos-content {
+  padding: 70px 40px 100px 40px;
+  background: radial-gradient(circle at 50% -10%, rgba(195,0,255,0.25) 0%, transparent 55%),
+              linear-gradient(180deg, #05010c 0%, #04000a 100%);
+}
+
+.apropos-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Titres de section discrets + ligne, mais sans cartes */
+
+.apropos-section-title {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #ff74df;
+  margin: 40px 0 6px 0;
+}
+
+.apropos-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0.22), transparent);
+  margin-bottom: 18px;
+}
+
+/* Paragraphe large, centré, pas de fond */
+
+.apropos-text-block {
+  margin-bottom: 26px;
+}
+
+.apropos-text-block p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.86);
+  max-width: 80ch;
+}
+
+/* Option : recentrer un peu tout le texte */
+
+.apropos-text-block p {
+  margin: 0 auto;
+}
+
+/* Variante pour la partie IA : petite barre violette à gauche sur desktop */
+
+.apropos-ia-note {
+  position: relative;
+}
+
+@media (min-width: 769px) {
+  .apropos-ia-note::before {
+    content: "";
+    position: absolute;
+    left: -24px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: linear-gradient(180deg,#ff74df,#9b5cff);
+    opacity: 0.9;
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .apropos-hero {
+    padding: 100px 20px 70px 20px;
+  }
+
+  .apropos-hero h1 {
+    font-size: 40px;
+    letter-spacing: 0.16em;
+  }
+
+  .apropos-hero-subtitle {
+    font-size: 15px;
+  }
+
+  .apropos-content {
+    padding: 50px 20px 70px 20px;
+  }
+
+  .apropos-text-block p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
