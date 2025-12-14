@@ -1,3 +1,6 @@
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
@@ -99,7 +102,7 @@
 }
 body {
     font-family: 'Merriweather Sans', 'Roboto', Arial, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
-    background-color: #111;
+    background-color: #222;
     color: #fff;
     font-weight: 300;
     min-height: 100vh;
@@ -126,7 +129,7 @@ p, li {
     right: 0;
     top: 0;
     height: 82px;
-    background-color: #000;
+    background-color: #111;
     border-bottom: 4px solid #c300ff;
     display: flex;
     align-items: center;
@@ -519,6 +522,31 @@ p, li {
     font-weight: 600;
 }
 
+/* Original hero pattern */
+.hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle, rgba(255,228,122,0.4) 1px, transparent 1px),
+        radial-gradient(circle, rgba(195,0,255,0.3) 1px, transparent 1px),
+        radial-gradient(circle, rgba(53,116,255,0.3) 1px, transparent 1px),
+        radial-gradient(circle, rgba(11,198,255,0.2) 1px, transparent 1px);
+    background-size: 60px 60px, 80px 80px, 100px 100px, 120px 120px;
+    background-position: 0 0, 30px 30px, 60px 60px, 90px 90px;
+    animation: patternDrift 25s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes patternDrift {
+    0% {
+        background-position: 0 0, 30px 30px, 60px 60px, 90px 90px;
+    }
+    100% {
+        background-position: 60px 60px, 90px 90px, 120px 120px, 150px 150px;
+    }
+}
+
 /* Sections */
 .bio-section {
     padding: 80px 40px;
@@ -730,13 +758,15 @@ p, li {
 }
 
 .travail-card {
-    background: linear-gradient(135deg, rgba(53, 116, 255, 0.08), rgba(195, 0, 255, 0.08));
-    border: 1px solid rgba(195, 0, 255, 0.25);
-    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(53, 116, 255, 0.15), rgba(195, 0, 255, 0.15), rgba(255, 228, 122, 0.1));
+    border: 1px solid rgba(195, 0, 255, 0.4);
+    border-left: 6px solid #ffe47a;
+    border-radius: 16px;
     padding: 40px;
     position: relative;
     transition: all 0.4s cubic-bezier(.7,.3,.3,1);
     overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .travail-card::before {
@@ -751,9 +781,9 @@ p, li {
 
 .travail-card:hover {
     border-color: #c300ff;
-    box-shadow: 0 0 40px rgba(195, 0, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transform: translateY(-8px);
-    background: linear-gradient(135deg, rgba(53, 116, 255, 0.12), rgba(195, 0, 255, 0.12));
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, rgba(53, 116, 255, 0.25), rgba(195, 0, 255, 0.25), rgba(255, 228, 122, 0.2));
 }
 
 .travail-card:hover::before {
@@ -762,21 +792,26 @@ p, li {
 
 .travail-number {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 64px;
+    font-size: 72px;
     font-weight: 700;
-    color: rgba(195, 0, 255, 0.2);
+    color: #c300ff;
     line-height: 1;
     margin-bottom: 20px;
     letter-spacing: 0.05em;
 }
 
 .travail-card h3 {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
     font-weight: 700;
-    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg,#ffe47a 10%,#c300ff 70%,#3574ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 20px;
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .travail-icon {
@@ -798,8 +833,8 @@ p, li {
 }
 
 .travail-card p {
-    font-size: 14px;
-    color: #aaa;
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
     line-height: 1.7;
     margin-bottom: 16px;
 }
@@ -849,21 +884,6 @@ p, li {
 
 .travail-card.alt.reverse .travail-row {
     grid-template-columns: 1fr 120px;
-}
-
-.travail-card.featured {
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 40px;
-    background: linear-gradient(135deg, rgba(255,228,122,0.04), rgba(195,0,255,0.03));
-    border-left: 6px solid #ffe47a;
-}
-
-.featured-content {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 28px;
-    align-items: center;
 }
 
 .featured-text .quote {
@@ -1513,7 +1533,10 @@ p, li {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin: 0 0 10px 0;
-  color: #ffffff;
+  background: linear-gradient(135deg,#ffe47a 10%,#c300ff 70%,#3574ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .apropos-hero-subtitle {
@@ -1536,6 +1559,9 @@ p, li {
 .apropos-container {
   max-width: 960px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
 }
 
 /* Titres de section discrets + ligne, mais sans cartes */
@@ -1573,6 +1599,57 @@ p, li {
 
 .apropos-text-block p {
   margin: 0 auto;
+}
+
+/* Styling for apropos blocks to make them aesthetic */
+.apropos-block {
+    background: linear-gradient(135deg, rgba(53, 116, 255, 0.1), rgba(195, 0, 255, 0.1), rgba(255, 228, 122, 0.05));
+    border: 1px solid rgba(195, 0, 255, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.apropos-block:hover {
+    border-color: #c300ff;
+    box-shadow: 0 0 30px rgba(195, 0, 255, 0.3), 0 0 60px rgba(255, 228, 122, 0.1);
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, rgba(53, 116, 255, 0.15), rgba(195, 0, 255, 0.15), rgba(255, 228, 122, 0.1));
+}
+
+.apropos-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg,#ffe47a 10%,#c300ff 70%,#3574ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.apropos-block p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.9);
+    margin: 0;
+}
+
+/* Specific styles for unique blocks */
+.apropos-design {
+    background: linear-gradient(135deg, rgba(255,228,122,0.15), rgba(195,0,255,0.1));
+    border-color: rgba(255,228,122,0.4);
+}
+
+.apropos-ia {
+    background: linear-gradient(135deg, rgba(11,198,255,0.1), rgba(53,116,255,0.1));
+    border-color: rgba(11,198,255,0.4);
 }
 
 /* Variante pour la partie IA : petite barre violette à gauche sur desktop */
@@ -1618,4 +1695,98 @@ p, li {
     font-size: 14px;
     line-height: 1.8;
   }
+
+  .apropos-container {
+    grid-template-columns: 1fr;
+  }
 }
+
+/* Contact page unique styling */
+.contact-content {
+  padding: 80px 40px 120px 40px;
+  background: linear-gradient(180deg, #0f0f0f 0%, #1a0a2a 50%, #0a0a0a 100%);
+}
+
+.contact-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.contact-block {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(195, 0, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.contact-block h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: #ffe47a;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-block p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 20px;
+}
+
+.contact-block a {
+  color: #c300ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-block a:hover {
+  color: #ffe47a;
+  text-decoration: underline;
+}
+
+.contact-block ul {
+  text-align: left;
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.contact-block li {
+  margin-bottom: 10px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+
+.contact-block a {
+  color: #c300ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-block a:hover {
+  color: #ffe47a;
+  text-decoration: underline;
+}
+
+/* Responsive for contact */
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 60px 20px 80px 20px;
+  }
+
+  .contact-block {
+    padding: 30px;
+  }
+
+  .contact-block h2 {
+    font-size: 24px;
+  }
+}
+
+
